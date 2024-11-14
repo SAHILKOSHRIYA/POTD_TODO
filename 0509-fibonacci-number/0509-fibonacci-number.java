@@ -10,20 +10,27 @@ class Solution {
         {
             return 1;
         }
-        // return fib(n-1)+fib(n-2);
-        int fib[]=new int [n+1];
-        fib[0]=0;
-        fib[1]=1;
-        for(int i = 2;i<=n;i++)
-        {
-            fib[i]=fib[i-1]+fib[i-2];
-        }
-        
-//         for(int i=2;i<=n;i++)
+        // return fib(n-1)+fib(n-2);          // 1.recursice function 
+//         int fib[]=new int [n+1];
+//         fib[0]=0;
+//         fib[1]=1;
+//         for(int i = 2;i<=n;i++)
 //         {
-//          int temp;
-            
+//             fib[i]=fib[i-1]+fib[i-2];  // 2.space complexity increases
 //         }
-     return fib[n];
+                     // optimizing the space complexity
+         int slast=0;
+             int last=1;
+        int temp=0;
+        
+        for(int i=2;i<=n;i++)       {
+           
+            temp=last+slast;
+            slast=last;
+            last=temp;
+            
+        }
+         return temp;
+     //return fib[n];
     }
 }
